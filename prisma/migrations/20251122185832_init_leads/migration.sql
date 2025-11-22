@@ -1,6 +1,6 @@
 -- CreateTable
 CREATE TABLE "Lead" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "id" SERIAL NOT NULL,
     "nombreCompleto" TEXT NOT NULL,
     "rut" TEXT NOT NULL,
     "email" TEXT NOT NULL,
@@ -8,5 +8,7 @@ CREATE TABLE "Lead" (
     "mensaje" TEXT NOT NULL,
     "origen" TEXT,
     "pageUrl" TEXT,
-    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "Lead_pkey" PRIMARY KEY ("id")
 );
