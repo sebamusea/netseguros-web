@@ -43,12 +43,12 @@ function SiteHeader() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
-          <div className="relative h-11 w-48 sm:h-11 sm:w-60">
+          <div className="relative h-11 w-30 sm:h-11 sm:w-25">
             <Image
               src="/logo_dark_sf.png"
               alt="NetSeguros"
               fill
-              className="object-contain scale-110 origin-left sm:scale-125"
+              className="object-contain scale-250 origin-left"
               priority
             />
           </div>
@@ -83,6 +83,7 @@ function SiteHeader() {
 function MobileMenu() {
   return (
     <details className="relative sm:hidden">
+      {/* Botón hamburguesa */}
       <summary
         className="
           flex h-9 w-9 cursor-pointer items-center justify-center
@@ -100,8 +101,17 @@ function MobileMenu() {
         </div>
       </summary>
 
-      <div className="absolute right-0 mt-2 w-52 rounded-2xl border border-slate-700 bg-net-dark/95 p-2 shadow-lg">
-        <nav className="flex flex-col gap-1 text-sm text-slate-50">
+      {/* Panel desplegable: full-width, fondo sólido */}
+      <div
+        className="
+          fixed left-0 right-0 top-14 z-40
+          border-t border-slate-700
+          bg-net-dark
+          text-slate-50
+          shadow-lg
+        "
+      >
+        <nav className="flex flex-col gap-1 px-4 py-3 text-sm">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -113,7 +123,7 @@ function MobileMenu() {
           ))}
           <Link
             href="/contacto"
-            className="mt-1 rounded-xl bg-net-teal px-3 py-2 text-center text-sm font-semibold text-white transition hover:bg-net-teal-strong"
+            className="mt-2 rounded-xl bg-net-teal px-3 py-2 text-center text-sm font-semibold text-white transition hover:bg-net-teal-strong"
           >
             Quiero asesoría
           </Link>
@@ -122,6 +132,7 @@ function MobileMenu() {
     </details>
   );
 }
+
 
 
 function SiteFooter() {

@@ -1,0 +1,16 @@
+function SiteHeader() {
+  return (
+    <header className="sticky top-0 z-30 border-b border-slate-800/60 bg-net-dark shadow-md">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
+        <Link href="/" className="flex items-center gap-3">
+          {/* Alto fijo: el header NO crece */}
+          <div className="relative h-11 w-30 sm:h-11 sm:w-25">
+            <Image
+              src="/logo_dark_sf.png"
+              alt="NetSeguros"
+              fill
+              // escala el logo dentro del mismo alto
+              className="object-contain scale-250 origin-left"
+              priority
+            />
+          </div>
