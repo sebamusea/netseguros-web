@@ -41,15 +41,14 @@ function SiteHeader() {
   return (
     <header className="sticky top-0 z-30 border-b border-slate-800/60 bg-net-dark shadow-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
+        {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
-          {/* Alto fijo: el header NO crece */}
-          <div className="relative h-11 w-30 sm:h-11 sm:w-25">
+          <div className="relative h-11 w-48 sm:h-11 sm:w-60">
             <Image
-              src="/logo_dark_sf.png"
+              src="/logo-light.png"
               alt="NetSeguros"
               fill
-              // escala el logo dentro del mismo alto
-              className="object-contain scale-250 origin-left"
+              className="object-contain scale-110 origin-left sm:scale-125"
               priority
             />
           </div>
@@ -74,7 +73,7 @@ function SiteHeader() {
           </Link>
         </nav>
 
-        {/* Mobile nav (simple) */}
+        {/* Mobile nav (hamburguesa) */}
         <MobileMenu />
       </div>
     </header>
@@ -82,19 +81,45 @@ function SiteHeader() {
 }
 
 function MobileMenu() {
-  // Menú súper simple sin interacciones avanzadas, suficiente para v1.
   return (
-    <nav className="flex items-center gap-2 text-sm text-slate-100 sm:hidden">
-      {navLinks.map((link) => (
-        <Link
-          key={link.href}
-          href={link.href}
-          className="rounded-full border border-slate-700/60 px-3 py-1 text-xs font-medium hover:border-net-teal hover:text-net-teal"
-        >
-          {link.label}
-        </Link>
-      ))}
-    </nav>
+    <details className="relative sm:hidden">
+      <summary
+        className="
+          flex h-9 w-9 cursor-pointer items-center justify-center
+          rounded-full border border-slate-600/70 bg-net-dark/90 text-slate-100
+          outline-none
+          list-none
+          [&::-webkit-details-marker]:hidden
+        "
+        aria-label="Abrir menú de navegación"
+      >
+        <div className="space-y-1">
+          <span className="block h-0.5 w-4 rounded bg-current" />
+          <span className="block h-0.5 w-4 rounded bg-current" />
+          <span className="block h-0.5 w-4 rounded bg-current" />
+        </div>
+      </summary>
+
+      <div className="absolute right-0 mt-2 w-52 rounded-2xl border border-slate-700 bg-net-dark/95 p-2 shadow-lg">
+        <nav className="flex flex-col gap-1 text-sm text-slate-50">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="rounded-xl px-3 py-2 text-left transition hover:bg-slate-700/70"
+            >
+              {link.label}
+            </Link>
+          ))}
+          <Link
+            href="/contacto"
+            className="mt-1 rounded-xl bg-net-teal px-3 py-2 text-center text-sm font-semibold text-white transition hover:bg-net-teal-strong"
+          >
+            Quiero asesoría
+          </Link>
+        </nav>
+      </div>
+    </details>
   );
 }
 
