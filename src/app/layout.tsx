@@ -45,7 +45,7 @@ function SiteHeader() {
         <Link href="/" className="flex items-center gap-3">
           <div className="relative h-11 w-48 sm:h-11 sm:w-60">
             <Image
-              src="/logo-light.png"
+              src="/logo_dark_sf.png"
               alt="NetSeguros"
               fill
               className="object-contain scale-110 origin-left sm:scale-125"
@@ -122,6 +122,7 @@ function MobileMenu() {
     </details>
   );
 }
+
 
 function SiteFooter() {
   return (
