@@ -30,7 +30,7 @@ const slides: Slide[] = [
     primaryCtaHref: "/contacto",
     secondaryCtaLabel: "Ver nuestros seguros",
     secondaryCtaHref: "/seguros",
-    imageSrc: "/logo_cuadrado_light.jpg", // logo como ahora
+    imageSrc: "/home_general.jpg", // logo como ahora
     imageAlt: "NetSeguros",
   },
   {
@@ -43,7 +43,7 @@ const slides: Slide[] = [
     primaryCtaHref: "/seguros#personales",
     secondaryCtaLabel: "Hablar con un ejecutivo",
     secondaryCtaHref: "/contacto",
-    imageSrc: "/seguro_salud.png", // pon aquí una foto de salud en /public
+    imageSrc: "/home_salud.jpg", // pon aquí una foto de salud en /public
     imageAlt: "Familia protegida con seguros de salud",
   },
   {
@@ -56,7 +56,7 @@ const slides: Slide[] = [
     primaryCtaHref: "/seguros#personales",
     secondaryCtaLabel: "Cotizar con NetSeguros",
     secondaryCtaHref: "/contacto",
-    imageSrc: "/seguro_auto.png", // pon aquí una foto de autos/vehículos en /public
+    imageSrc: "/home_auto.jpg", // pon aquí una foto de autos/vehículos en /public
     imageAlt: "Vehículos asegurados",
   },
 ];
@@ -75,31 +75,21 @@ export default function HomePage() {
 
   return (
     <>
-            {/* HERO CON SLIDER DESLIZANTE (VERSIÓN COMPACTA) */}
-      <section className="bg-hero-net text-slate-50">
-        <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:py-12">
-          {/* Cinta deslizante */}
-          <div className="relative overflow-hidden">
-            <div
-              className="
-                flex w-full
-                transition-transform
-                duration-700
-                ease-out
-              "
-              style={{ transform: `translateX(-${activeIndex * 100}%)` }}
-            >
-              {slides.map((slide) => (
-                <div
-                  key={slide.id}
-                  className="
-                    w-full flex-none
-                    flex flex-col
-                    gap-y-6
-                    sm:flex-row sm:items-center sm:justify-between sm:gap-y-0 sm:gap-x-8
-                  "
-                >
-                  {/* Columna texto */}
+    {/* HERO FULL-WIDTH EN 2 COLUMNAS */}
+    <section className="w-full bg-hero-net text-slate-50">
+      {/* SLIDER CONTENEDOR FULL WIDTH */}
+      <div className="relative overflow-hidden w-full">
+        <div
+          className="flex transition-transform duration-700 ease-out"
+          style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+        >
+          {slides.map((slide) => (
+            <div key={slide.id} className="w-full flex-shrink-0">
+              {/* CADA SLIDE = RECTÁNGULO FULL-WIDTH CON ALTO FIJO (MÁS BAJO) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 w-full h-[380px] sm:h-[400px] lg:h-[480px]">
+                
+                {/* COLUMNA IZQUIERDA: TEXTO */}
+                <div className="bg-hero-net px-6 py-6 sm:px-10 sm:py-10 flex items-center">
                   <div className="max-w-xl space-y-4">
                     <p className="text-sm sm:text-base font-bold uppercase tracking-[0.25em] text-net-teal">
                       {slide.eyebrow}
@@ -107,9 +97,7 @@ export default function HomePage() {
 
                     <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
                       {slide.pretitle}{" "}
-                      <span className="text-net-teal">
-                        {slide.highlight}
-                      </span>
+                      <span className="text-net-teal">{slide.highlight}</span>
                       {slide.posttitle ? ` ${slide.posttitle}` : null}
                     </h1>
 
@@ -117,89 +105,55 @@ export default function HomePage() {
                       {slide.text}
                     </p>
 
-                    <div className="flex flex-wrap gap-3">
+                    <div className="flex flex-wrap gap-3 pt-2">
                       <Link
                         href={slide.primaryCtaHref}
-                        className="rounded-full bg-net-teal px-5 py-2.5 text-sm sm:text-base font-semibold text-white shadow-sm transition hover:bg-net-teal-strong"
+                        className="rounded-full bg-net-teal px-5 py-2.5 text-sm sm:text-base font-semibold text-white shadow-sm hover:bg-net-teal-strong"
                       >
                         {slide.primaryCtaLabel}
                       </Link>
 
-                      {slide.secondaryCtaHref && slide.secondaryCtaLabel && (
+                      {slide.secondaryCtaHref && (
                         <Link
                           href={slide.secondaryCtaHref}
-                          className="rounded-full border border-slate-500 px-5 py-2.5 text-sm sm:text-base font-semibold text-slate-100 transition hover:border-net-teal hover:text-net-teal"
+                          className="rounded-full border border-slate-500 px-5 py-2.5 text-sm sm:text-base font-semibold text-slate-100 hover:border-net-teal hover:text-net-teal"
                         >
                           {slide.secondaryCtaLabel}
                         </Link>
                       )}
                     </div>
                   </div>
-
-                  {/* Columna imagen: circular sólo para la slide principal */}
-                  <div className="relative mx-auto mt-4 sm:mt-0">
-                    {slide.id === 0 ? (
-                      // SLIDE 0: logo circular
-                      <div className="flex h-40 w-40 items-center justify-center sm:h-48 sm:w-48 lg:h-56 lg:w-56">
-                        {/* Halo detrás */}
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="h-full w-full rounded-full bg-gradient-to-br from-net-teal/40 via-net-teal/10 to-transparent blur-3xl" />
-                        </div>
-                        {/* Círculo */}
-                        <div className="relative h-full w-full overflow-hidden rounded-full bg-net-dark/60 ring-4 ring-net-teal/70">
-                          <Image
-                            src={slide.imageSrc}
-                            alt={slide.imageAlt}
-                            fill
-                            className="object-cover"
-                            priority={slide.id === 0}
-                          />
-                        </div>
-                      </div>
-                    ) : (
-                      // RESTO DE SLIDES: rectángulo con puntas redondeadas
-                      <div className="relative h-32 w-52 sm:h-40 sm:w-64 lg:h-48 lg:w-[320px]">
-                        {/* Halo suave detrás */}
-                        <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-net-teal/25 via-net-teal/10 to-transparent blur-3xl" />
-                        {/* Imagen rectangular */}
-                        <div className="relative h-full w-full overflow-hidden rounded-3xl bg-net-dark/40 ring-1 ring-slate-50/10">
-                          <Image
-                            src={slide.imageSrc}
-                            alt={slide.imageAlt}
-                            fill
-                            className="object-cover"
-                            priority={slide.id === 0}
-                          />
-                        </div>
-                      </div>
-                    )}
-                  </div>
                 </div>
-              ))}
-            </div>
-          </div>
 
-          {/* Dots centrados abajo del hero */}
-          <div className="mt-4 flex justify-center gap-2">
-            {slides.map((slide, index) => {
-              const isActive = index === activeIndex;
-              return (
-                <button
-                  key={slide.id}
-                  type="button"
-                  onClick={() => setActiveIndex(index)}
-                  className={`h-2.5 rounded-full transition-all ${
-                    isActive
-                      ? "w-6 bg-net-teal"
-                      : "w-2.5 bg-slate-500/60 hover:bg-slate-200"
-                  }`}
-                  aria-label={`Ver slide ${index + 1}`}
-                />
-              );
-            })}
-          </div>
+                {/* COLUMNA DERECHA: IMAGEN COMO FONDO COMPLETO */}
+                <div className="relative h-full">
+                  <Image
+                    src={slide.imageSrc}
+                    alt={slide.imageAlt}
+                    fill
+                    className="object-cover"
+                    priority={slide.id === activeIndex}
+                  />
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
-      </section>
+      </div>
+
+      {/* DOTS – FRANJA DELGADA DEL MISMO COLOR DEL HERO */}
+      <div className="mt-0 flex justify-center gap-2 py-1 bg-net-dark">
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setActiveIndex(i)}
+            className={`h-2.5 rounded-full transition-all ${
+              i === activeIndex ? "w-6 bg-net-teal" : "w-2.5 bg-slate-500/60"
+            }`}
+          />
+        ))}
+      </div>
+    </section>
 
 
       {/* RESTO DE LA HOME IGUAL QUE ANTES */}
