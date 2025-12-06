@@ -76,7 +76,7 @@ export default function HomePage() {
   return (
     <>
     {/* HERO FULL-WIDTH EN 2 COLUMNAS */}
-    <section className="w-full bg-hero-net text-slate-50">
+    <section className="relative w-full bg-hero-net text-slate-50 overflow-hidden">
       {/* SLIDER CONTENEDOR FULL WIDTH */}
       <div className="relative overflow-hidden w-full">
         <div
@@ -85,8 +85,8 @@ export default function HomePage() {
         >
           {slides.map((slide) => (
             <div key={slide.id} className="w-full flex-shrink-0">
-              {/* CADA SLIDE = RECTÁNGULO FULL-WIDTH CON ALTO FIJO (MÁS BAJO) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 w-full h-[380px] sm:h-[400px] lg:h-[480px]">
+              {/* CADA SLIDE = RECTÁNGULO FULL-WIDTH */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 w-full sm:h-[360px] lg:h-[420px]">
                 
                 {/* COLUMNA IZQUIERDA: TEXTO */}
                 <div className="bg-hero-net px-6 py-6 sm:px-10 sm:py-10 flex items-center">
@@ -126,12 +126,16 @@ export default function HomePage() {
                 </div>
 
                 {/* COLUMNA DERECHA: IMAGEN COMO FONDO COMPLETO */}
-                <div className="relative h-full">
+                <div
+                  className={`relative mt-3 sm:mt-0 w-full sm:h-full ${
+                    slide.id === 0 ? "h-64" : "h-56"
+                  }`}
+                >
                   <Image
                     src={slide.imageSrc}
                     alt={slide.imageAlt}
                     fill
-                    className="object-cover"
+                    className="object-cover object-top sm:object-cover"
                     priority={slide.id === activeIndex}
                   />
                 </div>
@@ -141,19 +145,26 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* DOTS – FRANJA DELGADA DEL MISMO COLOR DEL HERO */}
-      <div className="mt-0 flex justify-center gap-2 py-1 bg-net-dark">
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setActiveIndex(i)}
-            className={`h-2.5 rounded-full transition-all ${
-              i === activeIndex ? "w-6 bg-net-teal" : "w-2.5 bg-slate-500/60"
-            }`}
-          />
-        ))}
+      {/* DOTS – FRANJA DELGADA PEGADA AL FINAL DEL HERO (OVERLAY) */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0">
+        <div className="flex justify-center gap-2 py-1 bg-net-dark">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setActiveIndex(i)}
+              className={`h-2.5 rounded-full transition-all ${
+                i === activeIndex ? "w-6 bg-net-teal" : "w-2.5 bg-slate-500/60"
+              }`}
+              // Permitimos clic en los botones aunque el contenedor esté sin eventos
+              style={{ pointerEvents: "auto" }}
+            />
+          ))}
+        </div>
       </div>
     </section>
+
+
+
 
 
       {/* RESTO DE LA HOME IGUAL QUE ANTES */}
