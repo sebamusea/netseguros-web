@@ -43,7 +43,7 @@ const slides: Slide[] = [
     primaryCtaHref: "/seguros#personales",
     secondaryCtaLabel: "Hablar con un ejecutivo",
     secondaryCtaHref: "/contacto",
-    imageSrc: "/home_salud.jpg", // pon aquí una foto de salud en /public
+    imageSrc: "/home_salud_1.jpg", // pon aquí una foto de salud en /public
     imageAlt: "Familia protegida con seguros de salud",
   },
   {
@@ -73,10 +73,49 @@ export default function HomePage() {
     return () => clearInterval(interval);
   }, []);
 
+  const goNext = () => {
+    setActiveIndex((prev) => (prev + 1) % slides.length);
+  };
+
+  const goPrev = () => {
+    setActiveIndex((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
   return (
     <>
     {/* HERO FULL-WIDTH EN 2 COLUMNAS */}
     <section className="relative w-full bg-hero-net text-slate-50 overflow-hidden">
+      {/* Flecha izquierda */}
+      <button
+        type="button"
+        onClick={goPrev}
+        aria-label="Slide anterior"
+        className="
+          absolute left-3 top-1/2 z-20 -translate-y-1/2
+          flex h-10 w-10 items-center justify-center
+          rounded-full bg-net-dark/70 text-slate-50
+          ring-1 ring-slate-50/15 backdrop-blur
+          transition hover:bg-net-dark/90
+        "
+      >
+        <span className="text-xl leading-none">‹</span>
+      </button>
+
+      {/* Flecha derecha */}
+      <button
+        type="button"
+        onClick={goNext}
+        aria-label="Siguiente slide"
+        className="
+          absolute right-3 top-1/2 z-20 -translate-y-1/2
+          flex h-10 w-10 items-center justify-center
+          rounded-full bg-net-dark/70 text-slate-50
+          ring-1 ring-slate-50/15 backdrop-blur
+          transition hover:bg-net-dark/90
+        "
+      >
+        <span className="text-xl leading-none">›</span>
+      </button>
       {/* SLIDER CONTENEDOR FULL WIDTH */}
       <div className="relative overflow-hidden w-full">
         <div
@@ -89,7 +128,7 @@ export default function HomePage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 w-full sm:h-[360px] lg:h-[420px]">
                 
                 {/* COLUMNA IZQUIERDA: TEXTO */}
-                <div className="bg-hero-net px-6 py-6 sm:px-10 sm:py-10 flex items-center">
+                <div className="bg-hero-net px-6 py-6 sm:px-10 sm:pl-16 lg:pl-20 sm:py-10 flex items-center">
                   <div className="max-w-xl space-y-4">
                     <p className="text-sm sm:text-base font-bold uppercase tracking-[0.25em] text-net-teal">
                       {slide.eyebrow}
