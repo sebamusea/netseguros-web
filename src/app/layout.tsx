@@ -66,12 +66,6 @@ function SiteHeader() {
               {link.label}
             </Link>
           ))}
-          <Link
-            href="/contacto"
-            className="rounded-full bg-net-teal px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-net-teal-strong"
-          >
-            Quiero asesoría
-          </Link>
         </nav>
 
         {/* Mobile nav (hamburguesa) */}
