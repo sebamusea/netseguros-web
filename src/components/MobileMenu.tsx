@@ -60,13 +60,6 @@ export default function MobileMenu() {
               {link.label}
             </Link>
           ))}
-          <Link
-            href="/contacto"
-            onClick={handleLinkClick}
-            className="mt-2 rounded-xl bg-net-teal px-3 py-2 text-center text-sm font-semibold text-white transition hover:bg-net-teal-strong"
-          >
-            Quiero asesoría
-          </Link>
         </nav>
       </div>
     </details>
