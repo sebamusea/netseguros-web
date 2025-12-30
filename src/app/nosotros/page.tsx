@@ -7,7 +7,7 @@ export default function NosotrosPage() {
   return (
     <div className="bg-white">
       {/* HERO: QUIÉNES SOMOS – FRANJA COMPLETA */}
-      <section className="bg-net-dark text-slate-50">
+      <section className="bg-hero-net text-slate-50">
         <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-12">
           <div className="grid min-h-[45vh] items-center gap-10 sm:grid-cols-[1fr_1fr]">
             {/* Columna texto */}
