@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { ContactoValidationErrors } from "@/types/contacto";
 
 type FormState = {
@@ -9,6 +10,8 @@ type FormState = {
   rut: string;
   email: string;
   telefono: string;
+  macro: string;   // NUEVO
+  seguro: string;  // NUEVO
   mensaje: string;
 };
 
@@ -17,21 +20,81 @@ const initialFormState: FormState = {
   rut: "",
   email: "",
   telefono: "",
+  macro: "",
+  seguro: "",
   mensaje: "",
 };
 
+const MACROS = [
+  { value: "masivos", label: "Seguros masivos" },
+  { value: "personales", label: "Seguros personales" },
+  { value: "empresa", label: "Seguros de empresas" },
+  { value: "otras", label: "Otras consultas" },
+] as const;
+
+const SEGUROS_POR_MACRO: Record<string, { value: string; label: string }[]> = {
+  masivos: [
+    { value: "desgravamen", label: "Desgravamen" },
+    { value: "cesantia", label: "Cesantía" },
+    { value: "complementario-salud", label: "Complementarios de salud" },
+    { value: "proteccion-financiera", label: "Protección financiera" },
+  ],
+  personales: [
+    { value: "salud", label: "Salud" },
+    { value: "vida-accidentes", label: "Vida & Accidentes" },
+    { value: "vehiculos-hogar", label: "Vehículos & Hogar" },
+    { value: "mascotas", label: "Mascotas" },
+    { value: "vida-ahorro", label: "Vida Ahorro" },
+    { value: "vida-apv", label: "Vida APV" },
+    { value: "vida-alto-patrimonio", label: "Vida Alto Patrimonio" },
+  ],
+  empresa: [
+    { value: "leasing", label: "Leasing" },
+    { value: "equipos-moviles", label: "Equipos móviles" },
+    { value: "todo-riesgo-bienes-fisicos", label: "Todo riesgo bienes físicos" },
+    { value: "responsabilidad-civil", label: "Responsabilidad civil" },
+    { value: "ingenieria-construccion", label: "Ingeniería y construcción" },
+  ],
+  otras: [],
+};
+
+
 export default function ContactoPage() {
+  const searchParams = useSearchParams();
+
   const [formState, setFormState] = useState<FormState>(initialFormState);
   const [errors, setErrors] = useState<ContactoValidationErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [serverError, setServerError] = useState<string | null>(null);
 
+  useEffect(() => {
+    const macro = searchParams.get("macro") || "";
+    const seguro = searchParams.get("seguro") || "";
+
+    if (!macro && !seguro) return;
+
+    setFormState((prev) => ({
+      ...prev,
+      macro,
+      // solo seteamos seguro si viene macro (y no es "otras")
+      seguro: macro && macro !== "otras" ? seguro : "",
+    }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams]);
+
+
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
-    setFormState((prev) => ({ ...prev, [name]: value }));
+    setFormState((prev) => {
+      // Si cambió el macro, reiniciamos seguro (para que no quede uno incompatible)
+      if (name === "macro") {
+        return { ...prev, macro: value, seguro: "" };
+      }
+      return { ...prev, [name]: value };
+    });
     setErrors((prev) => ({ ...prev, [name]: undefined }));
   };
 
@@ -209,6 +272,64 @@ export default function ContactoPage() {
                   placeholder="+56 9 1234 5678"
                 />
               </div>
+
+              {/* Tipo de solicitud (macro) y seguro */}
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label
+                    htmlFor="macro"
+                    className="block text-xs font-medium text-slate-700 sm:text-sm"
+                  >
+                    Tipo de solicitud *
+                  </label>
+                  <select
+                    id="macro"
+                    name="macro"
+                    value={formState.macro}
+                    onChange={handleChange as any}
+                    className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm outline-none transition focus:border-net-teal focus:ring-2 focus:ring-net-teal"
+                  >
+                    <option value="" disabled>
+                      Selecciona una opción
+                    </option>
+                    {MACROS.map((m) => (
+                      <option key={m.value} value={m.value}>
+                        {m.label}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="seguro"
+                    className="block text-xs font-medium text-slate-700 sm:text-sm"
+                  >
+                    Seguro específico
+                  </label>
+                  <select
+                    id="seguro"
+                    name="seguro"
+                    value={formState.seguro}
+                    onChange={handleChange as any}
+                    disabled={!formState.macro || formState.macro === "otras"}
+                    className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm outline-none transition focus:border-net-teal focus:ring-2 focus:ring-net-teal disabled:bg-slate-100"
+                  >
+                    <option value="">
+                      {formState.macro === "otras"
+                        ? "No aplica para Otras consultas"
+                        : "Selecciona un seguro (opcional)"}
+                    </option>
+
+                    {(SEGUROS_POR_MACRO[formState.macro] ?? []).map((s) => (
+                      <option key={s.value} value={s.value}>
+                        {s.label}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
 
               {/* Mensaje */}
               <div>

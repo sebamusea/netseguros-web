@@ -18,7 +18,7 @@ const segurosMasivos: SeguroItem[] = [
     etiqueta: "Seguros masivos",
     descripcion:
       "Protección asociada a créditos y obligaciones financieras, para resguardar a tus clientes y a la institución frente a imprevistos.",
-    href: "/seguros/masivos/desgravamen",
+    href: "/contacto?macro=masivos&seguro=desgravamen",
     imageSrc: "/masivos-desgravamen.jpg",
     imageAlt: "Apretón de manos en un acuerdo financiero",
   },
@@ -28,7 +28,7 @@ const segurosMasivos: SeguroItem[] = [
     etiqueta: "Seguros masivos",
     descripcion:
       "Programas que protegen el pago de obligaciones ante pérdida de empleo, aportando tranquilidad a los asegurados y a la entidad.",
-    href: "/seguros/masivos/cesantia",
+    href: "/contacto?macro=masivos&seguro=cesantia",
     imageSrc: "/masivos-cesantia.jpg",
     imageAlt: "Reunión de trabajo donde se acuerdan condiciones de un seguro",
   },
@@ -38,7 +38,7 @@ const segurosMasivos: SeguroItem[] = [
     etiqueta: "Seguros masivos",
     descripcion:
       "Coberturas de salud complementarias para colectivos, con foco en bienestar y acceso oportuno a prestaciones médicas.",
-    href: "/seguros/masivos/complementario-salud",
+    href: "/contacto?macro=masivos&seguro=complementario-salud",
     imageSrc: "/masivos-complementario-salud.jpg",
     imageAlt: "Médico atendiendo a un niño junto a su madre",
   },
@@ -48,7 +48,7 @@ const segurosMasivos: SeguroItem[] = [
     etiqueta: "Seguros masivos",
     descripcion:
       "Productos que resguardan ingresos y pagos frente a eventos inesperados, fortaleciendo la relación con tus clientes.",
-    href: "/seguros/masivos/proteccion-financiera",
+    href: "/contacto?macro=masivos&seguro=proteccion-financiera",
     imageSrc: "/masivos-proteccion-financiera.jpg",
     imageAlt: "Ejecutivo ofreciendo documentación a un cliente",
   },
@@ -61,7 +61,7 @@ const segurosPersonales: SeguroItem[] = [
     etiqueta: "Seguros personales",
     descripcion:
       "Planes de salud y coberturas complementarias que se adaptan a tu realidad familiar, con acompañamiento cercano en el uso del seguro.",
-    href: "/seguros/personales/salud",
+    href: "/contacto?macro=personales&seguro=salud",
     imageSrc: "/personales-salud.jpg",
     imageAlt: "Equipo médico atendiendo a pacientes en un centro de salud",
   },
@@ -71,7 +71,7 @@ const segurosPersonales: SeguroItem[] = [
     etiqueta: "Seguros personales",
     descripcion:
       "Protección económica frente a fallecimiento o accidentes graves, para cuidar a quienes más quieres en los momentos difíciles.",
-    href: "/seguros/personales/vida-accidentes",
+    href: "/contacto?macro=personales&seguro=vida-accidentes",
     imageSrc: "/personales-vida-accidentes.jpg",
     imageAlt: "Familia abrazándose con expresión de cariño y contención",
   },
@@ -81,7 +81,7 @@ const segurosPersonales: SeguroItem[] = [
     etiqueta: "Seguros personales",
     descripcion:
       "Coberturas para tu auto y tu hogar, con asistencia en ruta, protección ante robos, daños materiales y otros imprevistos.",
-    href: "/seguros/personales/vehiculos-hogar",
+    href: "/contacto?macro=personales&seguro=vehiculos-hogar",
     imageSrc: "/personales-vehiculos-hogar.jpg",
     imageAlt: "Familia dentro de un automóvil sonriendo",
   },
@@ -91,7 +91,7 @@ const segurosPersonales: SeguroItem[] = [
     etiqueta: "Seguros personales",
     descripcion:
       "Planes que apoyan el cuidado veterinario y la protección de tus mascotas, integrándolas como parte de tu núcleo familiar.",
-    href: "/seguros/personales/mascotas",
+    href: "/contacto?macro=personales&seguro=mascotas",
     imageSrc: "/personales-mascotas.jpg",
     imageAlt: "Familia compartiendo con su perro en el living",
   },
@@ -101,7 +101,7 @@ const segurosPersonales: SeguroItem[] = [
     etiqueta: "Inversión & protección",
     descripcion:
       "Seguros de vida que combinan protección con ahorro de largo plazo, pensados para construir patrimonio de forma planificada.",
-    href: "/seguros/personales/vida-ahorro",
+    href: "/contacto?macro=personales&seguro=vida-ahorro",
     imageSrc: "/personales-vida-ahorro.jpg",
     imageAlt: "Persona disfrutando al aire libre con expresión de tranquilidad",
   },
@@ -111,7 +111,7 @@ const segurosPersonales: SeguroItem[] = [
     etiqueta: "Inversión & protección",
     descripcion:
       "Alternativas de Ahorro Previsional Voluntario con componente de seguro de vida, para reforzar tu pensión futura.",
-    href: "/seguros/personales/vida-apv",
+    href: "/contacto?macro=personales&seguro=vida-apv",
     imageSrc: "/personales-vida-apv.jpg",
     imageAlt: "Persona mirando hacia el horizonte con expresión de calma",
   },
@@ -121,7 +121,7 @@ const segurosPersonales: SeguroItem[] = [
     etiqueta: "Inversión & protección",
     descripcion:
       "Soluciones de planificación patrimonial y sucesoria para familias y personas de alto patrimonio, con enfoque integral.",
-    href: "/seguros/personales/vida-alto-patrimonio",
+    href: "/contacto?macro=personales&seguro=vida-alto-patrimonio",
     imageSrc: "/personales-vida-alto-patrimonio.jpg",
     imageAlt: "Mujer senior mirando a la cámara con gesto sereno",
   },
@@ -134,7 +134,7 @@ const segurosEmpresa: SeguroItem[] = [
     etiqueta: "Seguros empresa",
     descripcion:
       "Coberturas asociadas a contratos de leasing para proteger vehículos, maquinaria y otros activos financiados.",
-    href: "/seguros/empresa/leasing",
+    href: "/contacto?macro=empresa&seguro=leasing",
     imageSrc: "/empresa-leasing.jpg",
     imageAlt: "Grupo de personas viajando en automóvil",
   },
@@ -144,7 +144,7 @@ const segurosEmpresa: SeguroItem[] = [
     etiqueta: "Seguros empresa",
     descripcion:
       "Protección para flotas y equipos móviles utilizados en la operación de tu negocio, dentro y fuera de faena.",
-    href: "/seguros/empresa/equipos-moviles",
+    href: "/contacto?macro=empresa&seguro=equipos-moviles",
     imageSrc: "/empresa-equipos-moviles.jpg",
     imageAlt: "Personas asomadas por la ventana de un vehículo en movimiento",
   },
@@ -154,7 +154,7 @@ const segurosEmpresa: SeguroItem[] = [
     etiqueta: "Seguros empresa",
     descripcion:
       "Cobertura integral para edificios, instalaciones, maquinaria y otros activos físicos frente a daños materiales.",
-    href: "/seguros/empresa/todo-riesgo-bienes-fisicos",
+    href: "/contacto?macro=empresa&seguro=todo-riesgo-bienes-fisicos",
     imageSrc: "/empresa-todo-riesgo-bienes-fisicos.jpg",
     imageAlt: "Equipo de profesionales trabajando en una oficina moderna",
   },
@@ -164,7 +164,7 @@ const segurosEmpresa: SeguroItem[] = [
     etiqueta: "Seguros empresa",
     descripcion:
       "Programas que protegen a tu empresa frente a reclamos de terceros por daños materiales o lesiones corporales.",
-    href: "/seguros/empresa/responsabilidad-civil",
+    href: "/contacto?macro=empresa&seguro=responsabilidad-civil",
     imageSrc: "/empresa-responsabilidad-civil.jpg",
     imageAlt: "Dos ejecutivos estrechando manos en una oficina",
   },
@@ -174,7 +174,7 @@ const segurosEmpresa: SeguroItem[] = [
     etiqueta: "Seguros empresa",
     descripcion:
       "Coberturas especializadas para obras civiles, montajes e infraestructura, acompañando cada etapa del proyecto.",
-    href: "/seguros/empresa/ingenieria-construccion",
+    href: "/contacto?macro=empresa&seguro=ingenieria-construccion",
     imageSrc: "/empresa-ingenieria-construccion.jpg",
     imageAlt: "Equipo revisando planos y documentación de un proyecto",
   },
@@ -327,9 +327,9 @@ function SeguroCard({ seguro }: { seguro: SeguroItem }) {
         <div className="mt-3">
           <Link
             href={seguro.href}
-            className="inline-flex items-center text-xs sm:text-sm font-semibold text-net-teal group-hover:underline"
+            className="inline-flex items-center justify-center rounded-full bg-net-teal px-4 py-2 text-xs sm:text-sm font-semibold text-white shadow-sm transition hover:bg-net-teal-strong"
           >
-            Ver más detalles
+            Solicitar
             <span className="ml-1">→</span>
           </Link>
         </div>
