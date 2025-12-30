@@ -419,7 +419,7 @@ export default function HomePage() {
           </div>
           <Link
             href="/contacto"
-            className="rounded-full bg-net-teal px-7 py-3 text-base font-semibold text-white shadow-sm transition hover:bg-net-teal-strong">
+            className="rounded-full bg-net-teal px-7 py-3 text-center text-base font-semibold text-white shadow-sm transition hover:bg-net-teal-strong">
             Agendar una conversación
           </Link>
         </div>
