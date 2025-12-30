@@ -21,24 +21,9 @@ export default function NosotrosPage() {
               <p className="text-sm sm:text-base text-slate-100 leading-relaxed">
                 NetSeguros nace de la trayectoria de profesionales que han ocupado
                 posiciones gerenciales y ejecutivas en banca, seguros y corredores.
-                Esa experiencia nos permite entender tanto las necesidades de los
-                clientes como la lógica de las instituciones con las que trabajamos.
               </p>
 
-              <div className="mt-2 flex flex-wrap gap-3">
-                <Link
-                  href="/contacto"
-                  className="rounded-full bg-net-teal px-6 py-2.5 text-sm sm:text-base font-semibold text-white shadow-sm transition hover:bg-net-teal-strong"
-                >
-                  Agendar una conversación
-                </Link>
-                <Link
-                  href="/seguros"
-                  className="rounded-full border border-slate-200/70 px-6 py-2.5 text-sm sm:text-base font-semibold text-slate-50 transition hover:border-net-teal hover:text-net-teal"
-                >
-                  Ver nuestras líneas de seguros
-                </Link>
-              </div>
+              
             </div>
 
             {/* Columna imagen – ocupa la derecha completa */}
@@ -70,23 +55,6 @@ export default function NosotrosPage() {
               Un equipo con mirada ejecutiva y foco en el cliente.
             </h2>
           </header>
-
-          <div className="space-y-4 text-sm sm:text-base leading-relaxed text-slate-700">
-            <p>
-              NetSeguros es una empresa desarrollada por profesionales con más
-              de 30 años de experiencia en mercados financieros, banca y
-              seguros, ocupando posiciones gerenciales y ejecutivas en
-              compañías de seguros, corredoras y bancos. Esta trayectoria nos
-              permite entender tanto las necesidades de los clientes como la
-              lógica interna de las instituciones con las que trabajamos.
-            </p>
-            <p>
-              Nos especializamos en diseñar y gestionar programas de seguros,
-              asistencias y productos complementarios que combinan cobertura,
-              eficiencia operativa y una experiencia de usuario simple y
-              cercana.
-            </p>
-          </div>
         </div>
       </section>
 
@@ -103,19 +71,16 @@ export default function NosotrosPage() {
                 Acompañamos a personas, empresas e instituciones en todo el
                 ciclo del seguro.
               </h2>
-              <p className="text-sm sm:text-base leading-relaxed text-slate-700">
-                Creemos en relaciones de largo plazo basadas en transparencia,
-                cercanía y un entendimiento profundo de los riesgos. Nuestro rol
-                no se limita a intermediar pólizas: asesoramos en el diseño de
-                programas, acompañamos en la implementación y estamos presentes
-                en la gestión de siniestros.
+              <p className="text-sm sm:text-base leading-relaxed text-slate-700 text-left sm:text-justify">
+                Priorizamos relaciones de largo plazo basadas en transparencia y cercanía.
+                Diseñamos programas de seguros con foco en claridad, continuidad y una
+                experiencia simple para el cliente.
               </p>
 
               <ul className="mt-4 space-y-2 text-sm sm:text-base text-slate-700">
-                <li>• Escuchamos primero, antes de proponer soluciones.</li>
-                <li>• Traducimos el lenguaje técnico de seguros a decisiones claras.</li>
-                <li>• Buscamos equilibrio entre cobertura, costo y experiencia de cliente.</li>
-                <li>• Trabajamos codo a codo con las áreas internas de nuestros clientes.</li>
+                <li>• Escuchamos primero, antes de proponer.</li>
+                <li>• Traducimos lo técnico a decisiones claras.</li>
+                <li>• Equilibramos cobertura, costo y servicio.</li>
               </ul>
             </div>
 
