@@ -92,7 +92,7 @@ export default function HomePage() {
         aria-label="Slide anterior"
         className="
           absolute left-3 top-1/2 z-20 -translate-y-1/2
-          flex h-10 w-10 items-center justify-center
+          hidden sm:flex h-10 w-10 items-center justify-center
           rounded-full bg-net-dark/70 text-slate-50
           ring-1 ring-slate-50/15 backdrop-blur
           transition hover:bg-net-dark/90
@@ -108,7 +108,7 @@ export default function HomePage() {
         aria-label="Siguiente slide"
         className="
           absolute right-3 top-1/2 z-20 -translate-y-1/2
-          flex h-10 w-10 items-center justify-center
+          hidden sm:flex h-10 w-10 items-center justify-center
           rounded-full bg-net-dark/70 text-slate-50
           ring-1 ring-slate-50/15 backdrop-blur
           transition hover:bg-net-dark/90
