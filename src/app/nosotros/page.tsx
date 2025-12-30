@@ -8,10 +8,10 @@ export default function NosotrosPage() {
     <div className="bg-white">
       {/* HERO: QUIÉNES SOMOS – FRANJA COMPLETA */}
       <section className="bg-net-dark text-slate-50">
-        <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
-          <div className="grid min-h-[60vh] items-center gap-10 sm:grid-cols-[1.05fr_1.2fr]">
+        <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-12">
+          <div className="grid min-h-[45vh] items-center gap-10 sm:grid-cols-[1fr_1fr]">
             {/* Columna texto */}
-            <div className="space-y-5 max-w-xl">
+            <div className="space-y-5 max-w-xl text-left sm:text-left">
               <p className="text-sm sm:text-base font-bold uppercase tracking-[0.35em] text-net-teal">
                 nosotros
               </p>
@@ -27,7 +27,7 @@ export default function NosotrosPage() {
             </div>
 
             {/* Columna imagen – ocupa la derecha completa */}
-            <div className="relative h-64 w-full sm:h-[380px] lg:h-[430px]">
+            <div className="relative h-56 w-full sm:h-[300px] lg:h-[340px]">
               <div className="absolute -inset-3 rounded-3xl bg-net-teal/25 blur-2xl" />
               <div className="relative h-full w-full overflow-hidden rounded-3xl shadow-lg ring-1 ring-slate-50/20">
                 <Image
@@ -47,7 +47,7 @@ export default function NosotrosPage() {
       {/* QUIÉNES SOMOS – TEXTO PRINCIPAL */}
       <section className="border-b border-slate-200 bg-white">
         <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-14">
-          <header className="mb-4 space-y-3">
+          <header className="mb-4 space-y-3 text-center">
             <p className="text-sm sm:text-base font-bold uppercase tracking-[0.35em] text-net-teal">
               quiénes somos
             </p>
