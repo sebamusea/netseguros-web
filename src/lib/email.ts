@@ -18,6 +18,7 @@ export async function sendContactEmail(params: {
   from: string;
   subject: string;
   html: string;
+  replyTo?: string; // ✅ NUEVO
 }) {
   if (!smtpHost || !smtpPort || !smtpUser || !smtpPass) {
     console.warn(
@@ -41,5 +42,6 @@ export async function sendContactEmail(params: {
     to: params.to,
     subject: params.subject,
     html: params.html,
+    ...(params.replyTo ? { replyTo: params.replyTo } : {}), // ✅ NUEVO
   });
 }

@@ -16,8 +16,14 @@ model Lead {
   rut            String
   email          String
   telefono       String
+
+  // ✅ NUEVO (con default para filas existentes)
+  macro          String   @default("otras")
+  seguro         String?
+
   mensaje        String
-  origen         String?   // puede ser null
-  pageUrl        String?   // puede ser null
+  origen         String?
+  pageUrl        String?
   createdAt      DateTime @default(now())
 }
+

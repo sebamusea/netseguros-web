@@ -5,6 +5,11 @@ export interface ContactoPayload {
   rut: string;
   email: string;
   telefono: string;
+
+  // ✅ NUEVOS (del formulario)
+  macro: "masivos" | "personales" | "empresa" | "otras";
+  seguro?: string; // opcional (cuando macro !== "otras")
+
   mensaje: string;
   origen?: string;
   pageUrl?: string;
