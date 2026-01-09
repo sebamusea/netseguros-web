@@ -6,7 +6,7 @@ import { sendContactEmail } from "@/lib/email";
 
 // Destinatario final (correo de la empresa)
 const CONTACT_EMAIL_TO =
-  process.env.CONTACT_EMAIL_TO ?? "contacto@netcorredores.cl";
+  process.env.CONTACT_EMAIL_TO ?? "sebamuse.andaur@gmail.com";
 
 // Correo técnico que ENVÍA el mail (cuenta SMTP válida)
 const CONTACT_EMAIL_FROM = process.env.CONTACT_EMAIL_FROM ?? "";

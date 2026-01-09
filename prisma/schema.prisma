@@ -18,7 +18,7 @@ model Lead {
   telefono       String
 
   // ✅ NUEVO (con default para filas existentes)
-  macro          String   @default("otras")
+  macro          String?   @default("otras")
   seguro         String?
 
   mensaje        String
