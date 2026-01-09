@@ -7,7 +7,7 @@ export interface ContactoPayload {
   telefono: string;
 
   // ✅ NUEVOS (del formulario)
-  macro: "masivos" | "personales" | "empresa" | "otras";
+  macro?: string;
   seguro?: string; // opcional (cuando macro !== "otras")
 
   mensaje: string;
