@@ -26,7 +26,7 @@ export async function procesarContacto(
       rut: payload.rut,
       email: payload.email,
       telefono: payload.telefono,
-      macro: payload.macro,
+      macro: payload.macro ?? null,
       seguro: payload.seguro ?? null,
       mensaje: payload.mensaje,
       origen: payload.origen ?? null,
